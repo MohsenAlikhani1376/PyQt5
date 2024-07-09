@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton,QToolBar,QHBoxLayout,QVBoxLayout
-from PyQt5.QtWidgets import QSplitter , QSpacerItem, QSizePolicy,  QComboBox
+from PyQt5.QtWidgets import QSplitter , QSpacerItem, QSizePolicy,  QComboBox, QFrame
 from PyQt5.QtCore import QSize
 from PyQt5.QtCore import QRect
 from PyQt5.QtCore import Qt
@@ -96,6 +96,15 @@ class MainWindow(QMainWindow):
         top_layout.addWidget(top_button_container)
         top_layout.addItem(vertical_spacer)
 
+        # Create a separator line
+        separator = QFrame()
+        separator.setFrameShape(QFrame.HLine)
+        separator.setFrameShadow(QFrame.Sunken)
+        separator.setStyleSheet("background-color: white;")
+        separator.setFixedHeight(1)  # Adjust height as needed
+        # Add separator to the top layout
+        top_layout.addWidget(separator, alignment=Qt.AlignBottom)  # Align at the bottom of the layout
+        
         # Add bottom panel to the splitter
         top_splitter.addWidget(top_panel)
 
